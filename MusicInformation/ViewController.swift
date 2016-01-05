@@ -8,16 +8,68 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    //View Controllers
+    @IBOutlet weak var texFieldMusic: UITextField!
+    @IBOutlet weak var labelMusic: UILabel!
+    @IBOutlet weak var imageTortoise: UIImageView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        print("ENTRA MAIN")
+        texFieldMusic.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //Actions
+    @IBAction func buttonSearch(sender: UIButton) {
+        labelMusic.text = "Music Name"
+            texFieldMusic.resignFirstResponder()
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.sourceType = .PhotoLibrary
+            imagePickerController.delegate = self
+            
+            presentViewController(imagePickerController,animated:true, completion:nil)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        //hide keyboard
+        texFieldMusic.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        labelMusic.text = texFieldMusic.text
+    }
+    
+    
+    @IBAction func selectFromGallery(sender: UITapGestureRecognizer) {
+        texFieldMusic.resignFirstResponder()
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .PhotoLibrary
+        imagePickerController.delegate = self
+        
+        presentViewController(imagePickerController,animated:true, completion:nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        print("algoooooooooo")
+        dismissViewControllerAnimated(true, completion:nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        imageTortoise.image = selectedImage
+        //dissmiis controller image
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
 }
 
