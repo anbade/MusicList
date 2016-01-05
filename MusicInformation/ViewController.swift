@@ -15,11 +15,18 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     @IBOutlet weak var labelMusic: UILabel!
     @IBOutlet weak var imageTortoise: UIImageView!
     
+    var track = Track?()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("ENTRA MAIN")
         texFieldMusic.delegate = self
+        // Set up views if editing an existing Meal.
+        if let track = track {
+            navigationItem.title = track.artistName
+            texFieldMusic.text   = track.artistName
+            imageTortoise.image = track.image
+            labelMusic.text = track.song
+        }
     }
 
     override func didReceiveMemoryWarning() {

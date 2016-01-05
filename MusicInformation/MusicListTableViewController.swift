@@ -11,7 +11,7 @@ import UIKit
 class MusicListTableViewController: UITableViewController {
     
     //Variables
-    var track = [Track]()
+    var tracks = [Track]()
     
 
     override func viewDidLoad() {
@@ -32,7 +32,7 @@ class MusicListTableViewController: UITableViewController {
         let track2 = Track(artistName: "Tortoise",song:"tortoise song", image: photo2)
         let photo3 = UIImage(named: "Tree")!
         let track3 = Track(artistName: "Tree",song:"tree song", image: photo3)
-        track += [track1, track2, track3]
+        tracks += [track1, track2, track3]
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,7 +48,7 @@ class MusicListTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return track.count
+        return tracks.count
     }
 
     
@@ -58,11 +58,11 @@ class MusicListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MusicListTableViewCell
         
         // Fetches the appropriate meal for the data source layout.
-        let tracks = track[indexPath.row]
+        let track = tracks[indexPath.row]
         
-        cell.labelMusicTitle.text = tracks.artistName
-        cell.imageMusic.image = tracks.image
-        cell.labelMusicArtist.text = tracks.song
+        cell.labelMusicTitle.text = track.artistName
+        cell.imageMusic.image = track.image
+        cell.labelMusicArtist.text = track.song
         
         return cell
     }
@@ -103,14 +103,22 @@ class MusicListTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if(segue.identifier == "ShowDetail"){
+            let musicDetailViewController = segue.destinationViewController as! ViewController
+            // Get the cell that generated this segue.
+            if let selectedMusicCell = sender as? MusicListTableViewCell {
+                let indexPath = tableView.indexPathForCell(selectedMusicCell)!
+                let selectedMusic = tracks[indexPath.row]
+                musicDetailViewController.track = selectedMusic
+            }
+        }
     }
-    */
+    
 
 }
