@@ -37,8 +37,8 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Music Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snE-zF-tCD">
                                             <rect key="frame" x="92" y="37" width="160" height="21"/>
                                             <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -77,7 +77,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="sye-VC-eYM">
-                                <rect key="frame" x="20" y="28" width="560" height="437"/>
+                                <rect key="frame" x="20" y="28" width="560" height="415"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YpT-Rh-1oJ">
                                         <rect key="frame" x="0.0" y="0.0" width="91" height="21"/>
@@ -86,22 +86,24 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add artist" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iyi-M7-zng">
-                                        <rect key="frame" x="0.0" y="33" width="560" height="30"/>
-                                        <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8f-bc-rzJ">
-                                        <rect key="frame" x="0.0" y="75" width="48" height="30"/>
+                                        <rect key="frame" x="0.0" y="33" width="73" height="30"/>
                                         <animations/>
-                                        <state key="normal" title="Search"/>
+                                        <state key="normal" title="Play Demo"/>
                                         <connections>
                                             <action selector="buttonSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mI3-Uq-quk"/>
+                                            <segue destination="hDo-76-yKo" kind="show" id="xPS-K9-GI8"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The song will be take a little time in reproduce" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="xuH-MV-7CG">
+                                        <rect key="frame" x="0.0" y="75" width="142" height="8"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="6"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="Tortoise" translatesAutoresizingMaskIntoConstraints="NO" id="zSQ-6E-x9m">
-                                        <rect key="frame" x="0.0" y="117" width="320" height="320"/>
+                                        <rect key="frame" x="0.0" y="95" width="320" height="320"/>
                                         <animations/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -110,10 +112,6 @@
                                     </imageView>
                                 </subviews>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Iyi-M7-zng" secondAttribute="trailing" id="5KY-n0-fIr"/>
-                                    <constraint firstItem="Iyi-M7-zng" firstAttribute="leading" secondItem="sye-VC-eYM" secondAttribute="leading" id="eTG-7a-CGi"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <animations/>
@@ -127,7 +125,6 @@
                     <connections>
                         <outlet property="imageTortoise" destination="zSQ-6E-x9m" id="JyV-zw-0dm"/>
                         <outlet property="labelMusic" destination="YpT-Rh-1oJ" id="UZa-s0-hao"/>
-                        <outlet property="texFieldMusic" destination="Iyi-M7-zng" id="cF3-z4-KGe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -138,6 +135,14 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="952" y="296"/>
+        </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="DWT-ah-xJa">
+            <objects>
+                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="hDo-76-yKo" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EF3-ai-Hzt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1663" y="296"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3fj-b7-adM">
