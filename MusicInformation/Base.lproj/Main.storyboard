@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Music List-->
+        <!--25 Top Songs pop music from US -->
         <scene sceneID="1Pn-mY-QpN">
             <objects>
                 <tableViewController id="8OG-Ua-ASJ" customClass="MusicListTableViewController" customModule="MusicInformation" customModuleProvider="target" sceneMemberID="viewController">
@@ -24,18 +24,18 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tortoise" translatesAutoresizingMaskIntoConstraints="NO" id="AAM-lm-NuB">
-                                            <rect key="frame" x="0.0" y="0.0" width="84" height="89"/>
+                                            <rect key="frame" x="0.0" y="-5" width="94" height="94"/>
                                             <animations/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Music title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VaV-ky-0HX">
-                                            <rect key="frame" x="92" y="8" width="169" height="21"/>
+                                            <rect key="frame" x="102" y="8" width="169" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Music Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snE-zF-tCD">
-                                            <rect key="frame" x="92" y="37" width="160" height="21"/>
+                                            <rect key="frame" x="102" y="37" width="160" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -58,7 +58,7 @@
                             <outlet property="delegate" destination="8OG-Ua-ASJ" id="rnl-GR-Bbz"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Music List" id="c77-mK-Lbt"/>
+                    <navigationItem key="navigationItem" title="25 Top Songs pop music from US " id="c77-mK-Lbt"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wz6-UI-JEn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -76,24 +76,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="sye-VC-eYM">
-                                <rect key="frame" x="20" y="28" width="560" height="345"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="sye-VC-eYM">
+                                <rect key="frame" x="20" y="79" width="560" height="243"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YpT-Rh-1oJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="91" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YpT-Rh-1oJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="95" height="21"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="Tortoise" translatesAutoresizingMaskIntoConstraints="NO" id="zSQ-6E-x9m">
-                                        <rect key="frame" x="0.0" y="25" width="320" height="320"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrQ-7X-K4f">
+                                        <rect key="frame" x="0.0" y="39" width="33" height="17"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.098506557073216372" green="0.49410994764397909" blue="0.15764685045632915" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ReleaseDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6r-sb-9qE">
+                                        <rect key="frame" x="0.0" y="74" width="81" height="17"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="100" image="Tortoise" translatesAutoresizingMaskIntoConstraints="NO" id="zSQ-6E-x9m">
+                                        <rect key="frame" x="0.0" y="109" width="100" height="100"/>
                                         <animations/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="zSQ-6E-x9m" secondAttribute="height" multiplier="1:1" id="AEa-jI-C1E"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yu5-jr-nZP">
+                                        <rect key="frame" x="0.0" y="227" width="39" height="16"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <animations/>
                             </stackView>
@@ -109,7 +130,7 @@
                     <navigationItem key="navigationItem" id="3RC-zC-Mt0">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="KSP-Ck-okh">
                             <connections>
-                                <action selector="backToList:" destination="BYZ-38-t0r" id="Hu7-Po-gym"/>
+                                <action selector="returnSongList:" destination="BYZ-38-t0r" id="Wyj-jF-0L4"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="play" id="kkZ-yO-lJD">
@@ -121,6 +142,9 @@
                     <connections>
                         <outlet property="imageTortoise" destination="zSQ-6E-x9m" id="JyV-zw-0dm"/>
                         <outlet property="labelMusic" destination="YpT-Rh-1oJ" id="UZa-s0-hao"/>
+                        <outlet property="labelPrice" destination="hrQ-7X-K4f" id="9yu-u1-38r"/>
+                        <outlet property="labelReleaseDate" destination="g6r-sb-9qE" id="s9d-8z-W5C"/>
+                        <outlet property="labelRights" destination="Yu5-jr-nZP" id="EUw-Ff-nFt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

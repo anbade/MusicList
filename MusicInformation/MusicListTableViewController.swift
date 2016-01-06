@@ -32,7 +32,7 @@ class MusicListTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func load_image(urlString:String, artistName:String, songName:String, urlSong:String)
+    func load_image(urlString:String, artistName:String, songName:String, urlSong:String, price:String, rights:String, releaseDate:String)
     {
         let url = NSURL(string: urlString)
         let request: NSURLRequest = NSURLRequest(URL: url!)
@@ -41,7 +41,7 @@ class MusicListTableViewController: UITableViewController {
             if error == nil {
                 // Convert the downloaded data in to a UIImage object
                 let image = UIImage(data: data!)
-                let track1 = Track(artistName: artistName, song:songName, image:image!, urlSong:urlSong)
+                let track1 = Track(artistName: artistName, song:songName, image:image!, urlSong:urlSong,price:price, rights:rights, releaseDate:releaseDate)
                 self.tracks += [track1]
                 
                 dispatch_async(dispatch_get_main_queue(), {
@@ -52,7 +52,7 @@ class MusicListTableViewController: UITableViewController {
             }
             else {
                 let photo1 = UIImage(named: "Bird")!
-                let track1 = Track(artistName: artistName, song:songName, image:photo1,urlSong:urlSong)
+                let track1 = Track(artistName: artistName, song:songName, image:photo1,urlSong:urlSong,price:price, rights:rights, releaseDate:releaseDate)
                 self.tracks += [track1]
                 print("Error: \(error!.localizedDescription)")
             }
@@ -72,7 +72,10 @@ class MusicListTableViewController: UITableViewController {
                         let songName = musicListArray[i]["im:name"]["label"].string!
                         let urlString = musicListArray[i]["im:image"][2]["label"].string!
                         let urlSong = musicListArray[i]["link"][1]["attributes"]["href"].string!
-                        self.load_image(urlString, artistName: artistName, songName: songName, urlSong:urlSong)
+                        let price = musicListArray[i]["im:price"]["label"].string!
+                        let rights = musicListArray[i]["rights"]["label"].string!
+                        let releaseDate = musicListArray[i]["im:releaseDate"]["attributes"]["label"].string!
+                        self.load_image(urlString, artistName: artistName, songName: "Song Name: \(songName)", urlSong:urlSong, price:"iTunes Price: \(price)", rights:"Rights: \(rights)", releaseDate:"Release Date: \(releaseDate)")
                     }
                 }
         }

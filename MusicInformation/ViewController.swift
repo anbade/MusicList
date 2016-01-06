@@ -15,9 +15,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     //View Controllers
     @IBOutlet weak var labelMusic: UILabel!
     @IBOutlet weak var imageTortoise: UIImageView!
+    @IBOutlet weak var labelPrice: UILabel!
+    @IBOutlet weak var labelReleaseDate: UILabel!
+    @IBOutlet weak var labelRights: UILabel!
     
-    @IBAction func backToList(sender: UIBarButtonItem) {
-    }
     var track = Track?()
     var audioPlayer = AVAudioPlayer()
     var urlSong = String()
@@ -28,10 +29,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         // Set up views if editing an existing Meal.
         if let track = track {
             navigationItem.title = track.artistName
-           imageTortoise.image = track.image
+            imageTortoise.image = track.image
             labelMusic.text = track.song
             urlSong = track.urlSong
-            image = track.image!
+            labelPrice.text = track.price
+            labelReleaseDate.text = track.releaseDate
+            labelRights.text = track.rights
         }
     }
 
@@ -41,6 +44,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     }
     
     //Actions
+    
+    @IBAction func returnSongList(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
     @IBAction func buttonSearch(sender: UIButton) {
         /*do{
             let url = urlSong
