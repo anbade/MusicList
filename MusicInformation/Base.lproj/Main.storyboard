@@ -100,7 +100,7 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="100" image="Tortoise" translatesAutoresizingMaskIntoConstraints="NO" id="zSQ-6E-x9m">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="100" image="Tortoise" translatesAutoresizingMaskIntoConstraints="NO" id="zSQ-6E-x9m">
                                         <rect key="frame" x="0.0" y="109" width="100" height="100"/>
                                         <animations/>
                                         <gestureRecognizers/>
@@ -108,7 +108,7 @@
                                             <constraint firstAttribute="width" secondItem="zSQ-6E-x9m" secondAttribute="height" multiplier="1:1" id="AEa-jI-C1E"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yu5-jr-nZP">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yu5-jr-nZP">
                                         <rect key="frame" x="0.0" y="227" width="39" height="16"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -133,7 +133,7 @@
                                 <action selector="returnSongList:" destination="BYZ-38-t0r" id="Wyj-jF-0L4"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="kkZ-yO-lJD">
+                        <barButtonItem key="rightBarButtonItem" title="Play Demo" id="kkZ-yO-lJD">
                             <connections>
                                 <segue destination="hDo-76-yKo" kind="show" identifier="playDemo" id="1TG-Ly-tul"/>
                             </connections>
