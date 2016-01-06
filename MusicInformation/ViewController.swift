@@ -16,6 +16,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     @IBOutlet weak var labelMusic: UILabel!
     @IBOutlet weak var imageTortoise: UIImageView!
     
+    @IBAction func backToList(sender: UIBarButtonItem) {
+    }
     var track = Track?()
     var audioPlayer = AVAudioPlayer()
     var urlSong = String()
@@ -65,10 +67,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     override func prepareForSegue(segue: UIStoryboardSegue,
         sender: AnyObject?) {
-            let destination = segue.destinationViewController as!
+            if(segue.identifier == "playDemo"){
+                let destination = segue.destinationViewController as!
             AVPlayerViewController
-            let url = NSURL(string: urlSong)!
-            destination.player = AVPlayer(URL: url)
+                let url = NSURL(string: urlSong)!
+                destination.player = AVPlayer(URL: url)
+            }
     }
     
 }

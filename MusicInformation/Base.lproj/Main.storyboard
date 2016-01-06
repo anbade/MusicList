@@ -49,7 +49,7 @@
                                     <outlet property="imageMusic" destination="AAM-lm-NuB" id="nfu-bw-etT"/>
                                     <outlet property="labelMusicArtist" destination="snE-zF-tCD" id="b9J-zS-Ylg"/>
                                     <outlet property="labelMusicTitle" destination="VaV-ky-0HX" id="c4m-Nz-sR1"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="469-eM-ue3"/>
+                                    <segue destination="hiw-Uh-UMs" kind="show" identifier="ShowDetail" id="469-eM-ue3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -76,8 +76,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="sye-VC-eYM">
-                                <rect key="frame" x="20" y="28" width="560" height="415"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="sye-VC-eYM">
+                                <rect key="frame" x="20" y="28" width="560" height="345"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YpT-Rh-1oJ">
                                         <rect key="frame" x="0.0" y="0.0" width="91" height="21"/>
@@ -86,24 +86,8 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8f-bc-rzJ">
-                                        <rect key="frame" x="0.0" y="33" width="73" height="30"/>
-                                        <animations/>
-                                        <state key="normal" title="Play Demo"/>
-                                        <connections>
-                                            <action selector="buttonSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mI3-Uq-quk"/>
-                                            <segue destination="hDo-76-yKo" kind="show" id="xPS-K9-GI8"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The song will be take a little time in reproduce" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="xuH-MV-7CG">
-                                        <rect key="frame" x="0.0" y="75" width="142" height="8"/>
-                                        <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="6"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="Tortoise" translatesAutoresizingMaskIntoConstraints="NO" id="zSQ-6E-x9m">
-                                        <rect key="frame" x="0.0" y="95" width="320" height="320"/>
+                                        <rect key="frame" x="0.0" y="25" width="320" height="320"/>
                                         <animations/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -122,6 +106,18 @@
                             <constraint firstAttribute="trailingMargin" secondItem="sye-VC-eYM" secondAttribute="trailing" id="ShD-9d-ceC"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="3RC-zC-Mt0">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="KSP-Ck-okh">
+                            <connections>
+                                <action selector="backToList:" destination="BYZ-38-t0r" id="Hu7-Po-gym"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="kkZ-yO-lJD">
+                            <connections>
+                                <segue destination="hDo-76-yKo" kind="show" identifier="playDemo" id="1TG-Ly-tul"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageTortoise" destination="zSQ-6E-x9m" id="JyV-zw-0dm"/>
                         <outlet property="labelMusic" destination="YpT-Rh-1oJ" id="UZa-s0-hao"/>
@@ -134,7 +130,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="952" y="296"/>
+            <point key="canvasLocation" x="1764" y="296"/>
         </scene>
         <!--AV Player View Controller-->
         <scene sceneID="DWT-ah-xJa">
@@ -142,7 +138,7 @@
                 <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="hDo-76-yKo" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EF3-ai-Hzt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1663" y="296"/>
+            <point key="canvasLocation" x="2475" y="296"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3fj-b7-adM">
@@ -162,6 +158,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l6q-bz-hcL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-542" y="296"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UjO-gv-6aM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hiw-Uh-UMs" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MGq-7h-bdz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="UOZ-05-RRv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jky-eJ-JMn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="952" y="296"/>
         </scene>
     </scenes>
     <resources>

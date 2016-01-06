@@ -151,7 +151,10 @@ class MusicListTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if(segue.identifier == "ShowDetail"){
-            let musicDetailViewController = segue.destinationViewController as! ViewController
+            let nav = segue.destinationViewController as! UINavigationController
+            let musicDetailViewController = nav.topViewController as! ViewController
+            
+            //let musicDetailViewController = segue.destinationViewController as! ViewController
             // Get the cell that generated this segue.
             if let selectedMusicCell = sender as? MusicListTableViewCell {
                 let indexPath = tableView.indexPathForCell(selectedMusicCell)!
