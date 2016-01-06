@@ -12,10 +12,12 @@ class Track{
     var artistName: String
     var song: String
     var image: UIImage?
+    var urlSong: String
     
-    init(artistName:String, song:String, image:UIImage){
+    init(artistName:String, song:String, image:UIImage, urlSong:String){
         self.artistName = artistName
         self.song = song
         self.image = image
+        self.urlSong = urlSong
     }
 }

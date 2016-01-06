@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class MusicListTableViewController: UITableViewController {
     
@@ -16,8 +18,7 @@ class MusicListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadSampleTracks()
-
+        loadFromRest()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -25,20 +26,60 @@ class MusicListTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    func loadSampleTracks(){
-        let photo1 = UIImage(named: "Bird")!
-        let track1 = Track(artistName: "Bird",song:"birds song", image: photo1)
-        let photo2 = UIImage(named: "Tortoise")!
-        let track2 = Track(artistName: "Tortoise",song:"tortoise song", image: photo2)
-        let photo3 = UIImage(named: "Tree")!
-        let track3 = Track(artistName: "Tree",song:"tree song", image: photo3)
-        tracks += [track1, track2, track3]
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func load_image(urlString:String, artistName:String, songName:String, urlSong:String)
+    {
+        let url = NSURL(string: urlString)
+        let request: NSURLRequest = NSURLRequest(URL: url!)
+        let mainQueue = NSOperationQueue.mainQueue()
+        NSURLConnection.sendAsynchronousRequest(request, queue: mainQueue, completionHandler: { (response, data, error) -> Void in
+            if error == nil {
+                // Convert the downloaded data in to a UIImage object
+                let image = UIImage(data: data!)
+                let track1 = Track(artistName: artistName, song:songName, image:image!, urlSong:urlSong)
+                self.tracks += [track1]
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView.reloadData()
+                    return
+                })
+                self.tableView.reloadData()
+            }
+            else {
+                let photo1 = UIImage(named: "Bird")!
+                let track1 = Track(artistName: artistName, song:songName, image:photo1,urlSong:urlSong)
+                self.tracks += [track1]
+                print("Error: \(error!.localizedDescription)")
+            }
+        })
+        
+    }
+    
+    func loadFromRest(){
+        Alamofire.request(.GET, "https://itunes.apple.com/us/rss/topsongs/limit=25/genre=14/explicit=true/json")
+            .responseJSON{response in
+                if(response.result.isSuccess){
+                    let json = JSON(data: response.data!)
+                    let musicListCount = json["feed"]["entry"].count
+                    let musicListArray = json["feed"]["entry"]
+                    for i in 0..<musicListCount {
+                        let artistName = musicListArray[i]["im:artist"]["label"].string!
+                        let songName = musicListArray[i]["im:name"]["label"].string!
+                        let urlString = musicListArray[i]["im:image"][2]["label"].string!
+                        let urlSong = musicListArray[i]["link"][1]["attributes"]["href"].string!
+                        self.load_image(urlString, artistName: artistName, songName: songName, urlSong:urlSong)
+                    }
+                }
+        }
+    }
+    
+    
+
 
     // MARK: - Table view data source
 

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
 
-class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AVAudioPlayerDelegate {
     
     //View Controllers
     @IBOutlet weak var texFieldMusic: UITextField!
@@ -16,6 +17,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     @IBOutlet weak var imageTortoise: UIImageView!
     
     var track = Track?()
+    var audioPlayer = AVAudioPlayer()
+    var urlSong = String()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +29,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
             texFieldMusic.text   = track.artistName
             imageTortoise.image = track.image
             labelMusic.text = track.song
+            urlSong = track.urlSong
         }
     }
 
@@ -37,12 +41,18 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     //Actions
     @IBAction func buttonSearch(sender: UIButton) {
         labelMusic.text = "Music Name"
-            texFieldMusic.resignFirstResponder()
-            let imagePickerController = UIImagePickerController()
-            imagePickerController.sourceType = .PhotoLibrary
-            imagePickerController.delegate = self
-            
-            presentViewController(imagePickerController,animated:true, completion:nil)
+        do{
+            let url = urlSong
+            let fileURL = NSURL(string:url)
+            let soundData = NSData(contentsOfURL:fileURL!)
+            self.audioPlayer = try AVAudioPlayer(data: soundData!)
+            audioPlayer.prepareToPlay()
+            audioPlayer.volume = 1.0
+            audioPlayer.delegate = self
+            audioPlayer.play()
+        }catch {
+            print("Error getting the audio file")
+        }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
