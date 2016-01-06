@@ -75,7 +75,7 @@ class MusicListTableViewController: UITableViewController {
                         let price = musicListArray[i]["im:price"]["label"].string!
                         let rights = musicListArray[i]["rights"]["label"].string!
                         let releaseDate = musicListArray[i]["im:releaseDate"]["attributes"]["label"].string!
-                        self.load_image(urlString, artistName: artistName, songName: "Song Name: \(songName)", urlSong:urlSong, price:"iTunes Price: \(price)", rights:"Rights: \(rights)", releaseDate:"Release Date: \(releaseDate)")
+                        self.load_image(urlString, artistName: artistName, songName: "Song Name: \(songName)", urlSong:urlSong, price:"iTunes Price: \(price)", rights:rights, releaseDate:"Release Date: \(releaseDate)")
                     }
                 }
         }
