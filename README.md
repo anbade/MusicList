@@ -7,7 +7,7 @@ Descripcion:
   En la parte superior se tiene un boton para poder escuchar un pedazo de la cancion en un avplayercontrollerview donde se tiene los
   controles de play, pause. Tambien se tienen las opciones de volver al detalle de la cancion y la opcion Back para retornar a la lista
   inicial.
-  La lista de canciones se recupera de la siguiente pagina: https://itunes.apple.com/us/rss/topsongs/limit=25/genre=14/xml
+  La lista de canciones se recupera de la siguiente pagina: https://itunes.apple.com/us/rss/topsongs/limit=25/genre=14/json
 
 Video:
 
