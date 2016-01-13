@@ -14,5 +14,6 @@ Descripcion:
 Video:
 
   Una breve demostracion se encuentra en la pagina: https://youtu.be/r9S9jlHhocw
-  
+
+  o lo puede descargar de google drive desde la siguiente pagina: https://drive.google.com/file/d/0B_7L8WJuswgCZFZSZDBjczhwU0E/view
   
